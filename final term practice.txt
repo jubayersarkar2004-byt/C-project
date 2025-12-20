@@ -1,0 +1,362 @@
+#include <iostream>
+using namespace std;
+
+// Struct to hold max, min, and average
+struct Statistics {
+    int max;
+    int min;
+    double average;
+};
+
+// Function to calculate statistics
+Statistics calculateStatistics(int arr[], int size) {
+    Statistics stats;
+    int sum = 0;
+
+    // initialize with first element
+    stats.max = arr[0];
+    stats.min = arr[0];
+
+    for (int i = 0; i < size; i++) {
+        if (arr[i] > stats.max)
+            stats.max = arr[i];
+        if (arr[i] < stats.min)
+            stats.min = arr[i];
+        sum += arr[i];
+    }
+
+    stats.average = (double)sum / size;
+    return stats;
+}
+
+int main() {
+
+    int size = 6;
+    int arr[size];
+    for(int i=0;i<size;i++)
+    {
+        cin>>arr[i];
+    }
+
+   // Statistics result = calculateStatistics(arr, size);
+
+    cout << "Max: " << calculateStatistics(arr, size).max << endl;
+    cout << "Min: " << calculateStatistics(arr, size).min << endl;
+    cout << "Average: " << calculateStatistics(arr, size).average << endl;
+
+    return 0;
+}
+,,,,,,,,,,,,,,,,,,,,,,,,
+#include<iostream>
+
+using namespace std;
+
+class Teacher{
+
+int teacherId;
+string name;
+double basicMonthlySalary;
+
+public:
+    Teacher()
+    {
+        cout<<"I am empty constructor."<<endl;
+    }
+   Teacher(int i,string n,double s)
+   {
+       setTeacherId(i);
+       setName(n);
+       setBasicMonthlySalary(s);
+   }
+   //setter
+   void setTeacherId(int i)
+   {
+       teacherId=i;
+
+   }
+   void setName(string n)
+   {
+       name=n;
+   }
+   void setBasicMonthlySalary(double s)
+   {
+        basicMonthlySalary=s;
+   }
+   //getter
+
+   int getTeacherId()
+   {
+       return teacherId;
+   }
+   string getName()
+   {
+       return name;
+   }
+   double getBasicMonthlySalary()
+   {
+       return basicMonthlySalary;
+   }
+   //method
+
+   double calculateNetMonthlySalary()
+   {
+       double researchAllowance= basicMonthlySalary * 0.2;
+       double gradingAllowance =  basicMonthlySalary *0.1;
+       double grossSalary = basicMonthlySalary + researchAllowance+gradingAllowance ;
+
+       double tax= grossSalary *0.12;
+       double netMonthlySalary= grossSalary - tax;
+
+       if(netMonthlySalary>50000)
+       {
+           netMonthlySalary-=1500;
+       }
+
+       return netMonthlySalary;
+   }
+   //display
+
+   void disPlayAll()
+   {
+       cout<<"Teacher ID:"<<teacherId<<endl;
+       cout<<"Teacher name:"<<name<<endl;
+       cout<<"Basic monthly salary:"<< basicMonthlySalary<<endl;
+       cout<<"net monthly salary:"<<calculateNetMonthlySalary()<<endl;
+
+   }
+
+};
+int main()
+{
+    Teacher t1;
+    t1.setTeacherId(1004);
+    t1.setName("shimul");
+    t1.setBasicMonthlySalary(25000);
+
+    cout<<"-----t1.details-----"<<endl;
+     cout<<"Teacher ID:"<<t1.getTeacherId()<<endl;
+       cout<<"Teacher name:"<<t1.getName()<<endl;
+       cout<<"Basic monthly salary:"<< t1.getBasicMonthlySalary()<<endl;
+       cout<<"net monthly salary:"<<t1.calculateNetMonthlySalary()<<endl;
+
+       cout<<"----t2.details---"<<endl;
+      Teacher t2(1005,"Zubas",36000);
+       t2.disPlayAll();
+
+       return 0;
+
+
+}
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#include<iostream>
+using namespace std;
+
+class Product{
+
+int productId;
+string productName;
+double basePrice;
+
+public:
+    Product()
+    {
+        cout<<"I am empty constructor."<<endl;
+    }
+    Product(int i,string n, double p)
+    {
+        setProductId(i);
+        setProductName(n);
+        setBasePrice(p);
+
+    }
+
+    //setter
+    void setProductId(int i)
+    {
+        productId=i;
+
+    }
+    void setProductName(string n)
+    {
+        productName=n;
+    }
+    void setBasePrice(double p)
+    {
+        basePrice=p;
+    }
+    //getter
+
+    int getProductId()
+    {
+        return productId;
+    }
+    string getProductName()
+    {
+        return productName;
+    }
+    double getBasePrice()
+    {
+        return basePrice;
+    }
+
+    //method
+
+    double calculateFinalPrice()
+    {
+        double shipingCharge = basePrice * 0.05;
+        double discount =0;
+        if(basePrice>1000)
+        {
+            double discount =basePrice *0.15;
+
+        }
+
+   double  discountPrice = basePrice-discount;
+
+    double tax = discountPrice * 0.15;
+    double netPrice =tax+ shipingCharge+basePrice;
+
+    return netPrice;
+
+    }
+
+    void display()
+    {
+        cout<<"Product ID:"<<productId<<endl;
+        cout<<"Product Name:"<<productName<<endl;
+        cout<<"Base price:"<<basePrice<<endl;
+        cout<<"Final Price:"<<calculateFinalPrice()<<endl;
+    }
+
+
+};
+
+int main()
+{
+
+    Product p1;
+    p1.setProductId(1004);
+    p1.setProductName("glory");
+    p1.setBasePrice(500);
+
+ cout<<"--- p1.details----"<<endl;
+       cout<<"Product ID:"<<p1.getProductId()<<endl;
+        cout<<"Product Name:"<<p1.getProductName()<<endl;
+        cout<<"Base price:"<<p1.getBasePrice()<<endl;
+        cout<<"Final Price:"<<p1.calculateFinalPrice()<<endl;
+
+
+       cout<<"----p2.details---"<<endl;
+      Product p2(104,"lux",5000);
+      p2.display();
+
+
+
+
+
+
+
+}
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#include<iostream>
+using namespace std;
+
+class Employee{
+
+private:
+     int empCode;
+    string name;
+    double baseMonthlySalary;
+
+public:
+    // Empty Constructor
+    Employee() {
+        empCode = 0;
+        name = "";
+        baseMonthlySalary = 0.0;
+    }
+
+    // Parameterized Constructor
+    Employee(int code, string n, double salary) {
+        empCode = code;
+        name = n;
+        baseMonthlySalary = salary;
+    }
+
+    // Getters
+    int getEmpCode() { return empCode; }
+    string getName() { return name; }
+    double getBaseSalary() { return baseMonthlySalary; }
+
+    // Setters
+    void setEmpCode(int code) { empCode = code; }
+    void setName(string n) { name = n; }
+    void setBaseSalary(double salary) { baseMonthlySalary = salary; }
+
+
+// calculation
+
+double  calculateNetMonthlySalary()
+{
+    double houseAllowance=  baseMonthlySalary*0.15;
+    double medicalAllowance=  baseMonthlySalary* 0.5;
+   double  grossSalary=  baseMonthlySalary + houseAllowance+medicalAllowance;
+
+   // tax calculate
+
+ double  tax= grossSalary * 0.1;
+
+  double netSalary= grossSalary - tax;
+
+  if(netSalary>=45000)
+  {
+      netSalary-=2000;
+  }
+
+  return netSalary;
+
+
+
+
+}
+
+// Display Method
+    void display() {
+        cout << "---------------------------------\n";
+        cout << "Employee Code      : " << empCode << endl;
+        cout << "Name               : " << name << endl;
+        cout << "Base Salary (BDT)  : " << baseMonthlySalary << endl;
+        cout << "Net Salary (BDT)   : " << calculateNetMonthlySalary() << endl;
+    }
+
+
+
+
+
+
+
+};
+
+int main()
+{
+    // Using parameterized constructor
+    Employee e1(101, "Rahim", 40000);
+    Employee e2(102, "Karim", 60000);
+
+    // Display employee details
+    e1.display();
+    e2.display();
+
+    // Using empty constructor + setters
+    Employee e3;
+    e3.setEmpCode(103);
+    e3.setName("Jamal");
+    e3.setBaseSalary(50000);
+    e3.display();
+
+    return 0;
+}
+
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
