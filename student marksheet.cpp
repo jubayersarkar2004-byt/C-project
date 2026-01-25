@@ -68,3 +68,4 @@ else if(avg>50 && avg<70)
     return 0;
 
 }
+
