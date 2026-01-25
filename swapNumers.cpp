@@ -22,3 +22,4 @@ cout<<"b="<<b;
 getch();
 return 0;
 }
+
